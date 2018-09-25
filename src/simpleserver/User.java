@@ -7,4 +7,7 @@ public class User<T> {
         this.userid = userid;
     }
 
+    public T get(){
+        return userid;
+    }
 }
