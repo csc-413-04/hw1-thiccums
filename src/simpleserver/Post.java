@@ -1,8 +1,8 @@
 package simpleserver;
 
-public class Posts<T> {
+public class Post<T> {
     private T postid;
-    
+
     public void set(T postid) {
         this.postid = postid;
     }
