@@ -10,4 +10,8 @@ public class User<T> {
     public T get(){
         return userid;
     }
+
+    public String toString(){
+        return userid.toString();
+    }
 }
