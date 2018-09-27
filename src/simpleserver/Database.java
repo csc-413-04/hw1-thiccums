@@ -18,16 +18,16 @@ public class Database {
     }
 
     public Object findValue(Class keyValue, Object value) {                  //placeholder method for finding and printing values for a "/user" or key along those lines
+        Object temp = new Object();
+        for (Object key : db.values()) {
 
-        for(Object key : db.values()){
-
-            if(key == value){
-               return key;
+            if (key == value) {
+                temp = key;
             }
 
         }
 
-
+        return temp;
     }
 
 }
