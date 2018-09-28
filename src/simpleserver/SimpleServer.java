@@ -59,12 +59,11 @@ class SimpleServer {
           System.exit(1);
         }
 
-        /* String.split( delimiting regex, limit use -1 for no limit)
-        I need to see what the requestLine string looks like before deciding how to .split it
-        and which tokens will fall where in the array
+        // String.split( delimiting regex, limit use -1 for no limit)
+                
+        // String lineTokens[] = requestLine.split("/");
         
-        */
-        // String requestTokens[] = requestLine.split("/");
+        // String requestToken[] = lineToken[lineToken.length()-1].split("&");
 
         BufferedOutputStream out = new BufferedOutputStream(dong.getOutputStream());
         PrintWriter writer = new PrintWriter(out, true);  // char output to the client
