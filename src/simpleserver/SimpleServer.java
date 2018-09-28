@@ -10,6 +10,12 @@ class SimpleServer {
     ServerSocket ding;
     Socket dong = null;
     String resource = null;
+    String requestLine = null;
+
+
+        // Initialize database object here
+        //
+
     try {
       ding = new ServerSocket(1299);
       System.out.println("Opened socket " + 1299);
@@ -31,6 +37,11 @@ class SimpleServer {
           String line = in.readLine();
           System.out.println("----------REQUEST START---------");
           System.out.println(line);
+          requestLine = line;// capturing this line to tokenize this string for user, user?userid=#, post, post?postid=#
+
+
+
+
           // read only headers
           line = in.readLine();
           while (line != null && line.trim().length() > 0) {
@@ -40,13 +51,20 @@ class SimpleServer {
             } else {
               break;
             }
-            line = in.readLine();
+            line = in.readLine();            
           }
           System.out.println("----------REQUEST END---------\n\n");
         } catch (IOException e) {
           System.out.println("Error reading");
           System.exit(1);
         }
+
+        /* String.split( delimiting regex, limit use -1 for no limit)
+        I need to see what the requestLine string looks like before deciding how to .split it
+        and which tokens will fall where in the array
+        
+        */
+        // String requestTokens[] = requestLine.split("/");
 
         BufferedOutputStream out = new BufferedOutputStream(dong.getOutputStream());
         PrintWriter writer = new PrintWriter(out, true);  // char output to the client
@@ -57,6 +75,10 @@ class SimpleServer {
         writer.println("Connection: close");
         writer.println("Content-type: text/html");
         writer.println("");
+
+        
+
+
 
         // Body of our response
         writer.println("<h1>Some cool response!</h1>");
