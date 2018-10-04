@@ -60,10 +60,8 @@ class SimpleServer {
         }
 
         // String.split( delimiting regex, limit use -1 for no limit)
-                
-        // String lineTokens[] = requestLine.split("/");
-        
-        // String requestToken[] = lineToken[lineToken.length()-1].split("&");
+          Processor.process(requestLine);
+
 
         BufferedOutputStream out = new BufferedOutputStream(dong.getOutputStream());
         PrintWriter writer = new PrintWriter(out, true);  // char output to the client
