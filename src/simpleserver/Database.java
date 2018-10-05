@@ -17,7 +17,7 @@ public class Database {
 
     }
 
-    public Object findValue(Class keyValue, Object value) {                  //placeholder method for finding and printing values for a "/user" or key along those lines
+    public Object findValue(Object value) {                  //placeholder method for finding and printing values for a "/user" or key along those lines
         Object temp = new Object();
         for (Object key : db.values()) {
 
