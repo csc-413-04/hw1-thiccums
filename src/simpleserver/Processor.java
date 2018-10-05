@@ -7,7 +7,7 @@ static String response;
 static String process(String request){
 
     String userTokens[] = request.split("user?userid=");
-    if (userTokens[1] != NULL){
+    if (userTokens[1] != null){
        ;
 
        ]

@@ -22,5 +22,9 @@ public class Post<T> {
         return data;
     }
 
+    public int getMaxLength(){
+        return maxLength;
+    }
+
 
 }
