@@ -1,12 +1,17 @@
 package simpleserver;
 
-public class PostProcessor extends Processor {
+import com.google.gson.Gson;
 
-    String process (T postId){
+public class PostProcessor implements Processor {
 
-        // I know this is not right, but this is the idea
-        // Have to use database findValue maybe...
-        return Post.get(postId);
+    @Override
+    public String process(String query){
+        Response response = new Response();
+        Database db = Database.getDatabase();
+        response.setData(db.getAllUsers());
+        response.setStatus("Ok");
+        Gson gson = new Gson();
+        return gson.toJson(response);
     }
 
 }

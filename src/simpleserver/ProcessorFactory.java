@@ -15,3 +15,11 @@ class ProcessorFactory {
         return  null;
     }
 }
+
+public class ProcessFactory {
+    static ServerProcessor getProcessor(String rawEndpoint){
+        String endpoint = "/test";
+        String querey = "/somthin";
+        //swtich statements
+    }
+}
