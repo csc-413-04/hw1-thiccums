@@ -1,28 +1,28 @@
 package simpleserver;
 
 public class User<T>{
-    private T username;
-    private int userid;
+    private T userid;
+    private String username;
 
 
-    public void setUserid(int userid){
+    public void set(T userid){
         this.userid = userid;
     }
 
-    public void set(T username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
     public T get(){
-        return username;
+        return userid;
     }
 
-    public int getUserid(){
-        return userid;
+    public String getUsername(){
+        return username;
 
     }
 
     public String toString(){
-        return username.toString();
+        return userid.toString();
     }
 }
