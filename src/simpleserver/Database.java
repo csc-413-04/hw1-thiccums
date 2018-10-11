@@ -49,6 +49,7 @@ public class Database {
             JsonParser jsonParser = new JsonParser();
             JsonObject obj = jsonParser.parse(br).getAsJsonObject();
 
+            posts = gson.fromJson(obj.get("posts"), Post[].class);
             users = gson.fromJson(obj.get("users"), User[].class);
             db.populate();
         }
