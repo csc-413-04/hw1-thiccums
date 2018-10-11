@@ -1,3 +1,0 @@
-package simpleserver;
-
-public interface
