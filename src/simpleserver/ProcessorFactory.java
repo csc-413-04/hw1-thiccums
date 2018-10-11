@@ -9,9 +9,11 @@ public class ProcessFactory {
 
       switch (rq.getEndpoint()) {
         case "user":
-            return UserProcess.response(rq, data).convertToJson();
+            return UserProcessor.response(rq, data).convertToJson();
+            break;
         case "post":
-            return PostProcess.response(rq, data).convertToJson();
+            return PostProcessor.response(rq, data).convertToJson();
+            break;
 }
       processor = new UserProcessor();
 
