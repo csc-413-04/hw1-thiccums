@@ -7,9 +7,9 @@ public class ProcessFactory {
       String query = "?asd=hello";
       ServerProcessor processor = null;
 
-      switch (rq.getEndpoint()) {
+      switch (rq.getEndpoint()) {  //    <======  what is "rq" ?
         case "user":
-            return UserProcessor.response(rq, data).convertToJson();
+            return UserProcessor.response(rq, data).convertToJson(); // <===== where are the arguments coming from?
             break;
         case "post":
             return PostProcessor.response(rq, data).convertToJson();
