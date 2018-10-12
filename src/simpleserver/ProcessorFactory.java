@@ -7,10 +7,10 @@ public class ProcessFactory {
 
       switch (request) {  //    <======  what is "rq" ?
         case "user":
-            return UserProcessor.response(request).convertToJson(); // <===== where are the arguments coming from?
+            return UserProcessor.process(request).convertToJson(); // <===== where are the arguments coming from?
             break;
         case "post":
-            return PostProcessor.response(request).convertToJson();
+            return PostProcessor.process(request).convertToJson();
             break;
 }
       processor = new UserProcessor();
