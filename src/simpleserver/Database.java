@@ -39,19 +39,23 @@ public class Database {
     }
 
     public User getUser(String userid){
-        if(!userHashMap.containsValue(userid)){
-            throw new ValueArrayResourceException();
+
+        for (User key : userHashMap.values() ) {
+
+            String[] arr = key.toString().split("\\.");
+            if (arr[0].toString() == userid.toString()) {
+                return key;
+            }
+
         }
 
-        User user = userHashMap.get(userid);
 
-        return user;
+
+        return null;
     }
 
     public Post getPost(int postid){
-        if(!userHashMap.containsValue(postid)){
-            throw new ValueArrayResourceException();
-        }
+
         Post post = postHashMap.get(postid);
 
         return post;

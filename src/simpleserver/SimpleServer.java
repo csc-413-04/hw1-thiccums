@@ -86,7 +86,10 @@ class SimpleServer {
 
 
         // Body of our response
-        writer.println(processor.process(ids[1]));
+
+          writer.println(processor.process(endpoint));
+
+
 
         dong.close();
       }

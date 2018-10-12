@@ -3,7 +3,7 @@ package simpleserver;
 public class Response {
     public String status;
     public int entries;
-    iData[] data;
+    iData[] data = new iData[60];
     
 
     public void setStatus(String status){

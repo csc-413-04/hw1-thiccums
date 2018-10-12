@@ -15,7 +15,7 @@ public class ProcessFactory {
         case "/user":
             return new UserProcessor(); // <===== where are the arguments coming from?
 
-        case "/post":
+        case "/posts":
             return new PostProcessor();
 
     }
