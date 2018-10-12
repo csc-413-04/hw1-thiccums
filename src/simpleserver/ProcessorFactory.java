@@ -2,17 +2,15 @@ package simpleserver;
 
 public class ProcessFactory {
 
-    static ServerProcessor getProcessor(String url) {
-      String endpoint = "/test";
-      String query = "?asd=hello";
-      ServerProcessor processor = null;
+    static Processor getProcessor(String request) {
+      Processor processor = null;
 
-      switch (rq.getEndpoint()) {  //    <======  what is "rq" ?
+      switch (request) {  //    <======  what is "rq" ?
         case "user":
-            return UserProcessor.response(rq, data).convertToJson(); // <===== where are the arguments coming from?
+            return UserProcessor.response(request).convertToJson(); // <===== where are the arguments coming from?
             break;
         case "post":
-            return PostProcessor.response(rq, data).convertToJson();
+            return PostProcessor.response(request).convertToJson();
             break;
 }
       processor = new UserProcessor();
