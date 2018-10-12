@@ -61,12 +61,12 @@ class SimpleServer {
         // String.split( delimiting regex, limit use -1 for no limit)
         String[] requestParts = requestLine.split(" "); // [GET , /hello, HTTP/1.1]
         String endpoint = requestParts[1];
-        String [] parts = endpoint.split("\\?");
-        Processor Processor = ProcessFactory.getProcessor(parts[0]);
-        String [] ids = parts[1].split("=");
+        String[] parts = endpoint.split("\\?");
+        String[] ids   = parts[0].split("=");
+        Processor processor = ProcessFactory.getProcessor(ids[0]);
 
 
-        Processor.process(ids[1]);
+
 
         //writer.println(Processor.process(endpoint));
 
@@ -86,7 +86,7 @@ class SimpleServer {
 
 
         // Body of our response
-        writer.println("<h1>Some cool response!</h1>");
+        writer.println(processor.process(ids[1]));
 
         dong.close();
       }

@@ -5,7 +5,7 @@ import com.google.gson.*;
 public class ProcessFactory {
 
     static Processor getProcessor(String request) {
-      Processor processor = null;
+      //Processor processor = null;
 
       //UserProcessor up = new UserProcessor();
       //PostProcessor pp = new PostProcessor();
@@ -18,8 +18,8 @@ public class ProcessFactory {
         case "/post":
             return new PostProcessor();
 
-}
-      processor = new UserProcessor();
+    }
+      //processor = new UserProcessor();
 
       return null;
     }
