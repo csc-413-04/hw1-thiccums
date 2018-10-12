@@ -17,8 +17,9 @@ public class PostProcessor implements Processor {
         else {
             Response response = new Response();
             Database db = Database.getDatabase();
-            int postid = Integer.parseInt(query);
-            response.setPostData(db.getPost(postid)); // response's data gets post data from db
+            String[] post = query.split("=");
+
+            response.setPostData(db.getPost(post[1])); // response's data gets post data from db
             response.setStatus("OK");  // No error checking :(
             Gson gson = new Gson();
             return gson.toJson(response);

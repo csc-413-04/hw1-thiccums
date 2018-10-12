@@ -54,11 +54,17 @@ public class Database {
         return null;
     }
 
-    public Post getPost(int postid){
+    public Post getPost(String postid){
 
-        Post post = postHashMap.get(postid);
+        for (Post key : postHashMap.values() ) {
 
-        return post;
+
+            if (key.toString() == postid.toString()) {
+                return key;
+            }
+
+        }
+        return null;
     }
 
 
@@ -91,10 +97,10 @@ public class Database {
     public void populate(){
 
         for(int i = 0; i < users.length; i++){
-            userHashMap.put( users[i].toString() , users[i]);
+            userHashMap.put( "Users" , users[i]);
         }
         for(int j = 0; j < posts.length; j++){
-            postHashMap.put( posts[j].toString(), posts[j]);
+            postHashMap.put( "Posts", posts[j]);
         }
 
     }
