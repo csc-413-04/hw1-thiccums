@@ -10,12 +10,12 @@ public class UserProcessor implements Processor {
         Database db = Database.getDatabase();
         if (query.length() > 5) {
             String[] userid = query.split("=");
-            response.setData(db.getUser(Integer.parseInt(userid[1])));
+            response.setUserData(db.getUser(userid[1]));
             response.setStatus("OK");
             Gson gson = new Gson();
             return gson.toJson(response);
         } else {
-            response.setData(db.getAllUsers());
+            response.setUserData(db.getAllUsers());
             response.setStatus("OK");
             Gson gson = new Gson();
             return gson.toJson(response);

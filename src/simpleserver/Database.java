@@ -38,7 +38,7 @@ public class Database {
         return this.users;
     }
 
-    public User getUser(int userid){
+    public User getUser(String userid){
         if(!userHashMap.containsValue(userid)){
             throw new ValueArrayResourceException();
         }
