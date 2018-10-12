@@ -9,6 +9,8 @@ import java.lang.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import jdk.nashorn.internal.runtime.regexp.joni.exception.ValueException;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -35,6 +37,27 @@ public class Database {
     public User[] getAllUsers(){
         return this.users;
     }
+
+    public User getUser(String userid){
+        if(!userHashMap.containsValue(userid)){
+            throw new ValueArrayResourceException();
+        }
+
+        User user = userHashMap.get(userid);
+
+        return user;
+    }
+
+    public Post getPost(String postid){
+        if(!userHashMap.containsValue(postid)){
+            throw new ValueArrayResourceException();
+        }
+        Post post = postHashMap.get(postid);
+
+        return post;
+    }
+
+
 
     public Post[] getAllPosts(){
         return this.posts;
@@ -64,10 +87,10 @@ public class Database {
     public void populate(){
 
         for(int i = 0; i < users.length; i++){
-            userHashMap.put("Users" , users[i]);
+            userHashMap.put( users[i].toString() , users[i]);
         }
         for(int j = 0; j < posts.length; j++){
-            postHashMap.put("Posts", posts[j]);
+            postHashMap.put( posts[j].toString(), posts[j]);
         }
 
     }
