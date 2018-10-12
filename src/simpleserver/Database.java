@@ -38,20 +38,21 @@ public class Database {
         return this.users;
     }
 
-    public User getUser(User userid){
+    public User getUser(String userid){
         if(!userHashMap.containsValue(userid)){
             throw new ValueArrayResourceException();
         }
-        User user = userHashMap.getOrDefault("Users", userid);
+
+        User user = userHashMap.get(userid);
 
         return user;
     }
 
-    public Post getPost(Post postid){
+    public Post getPost(String postid){
         if(!userHashMap.containsValue(postid)){
             throw new ValueArrayResourceException();
         }
-        Post post = postHashMap.getOrDefault("Posts", postid);
+        Post post = postHashMap.get(postid);
 
         return post;
     }
@@ -86,10 +87,10 @@ public class Database {
     public void populate(){
 
         for(int i = 0; i < users.length; i++){
-            userHashMap.put("Users" , users[i]);
+            userHashMap.put( users[i].toString() , users[i]);
         }
         for(int j = 0; j < posts.length; j++){
-            postHashMap.put("Posts", posts[j]);
+            postHashMap.put( posts[j].toString(), posts[j]);
         }
 
     }
