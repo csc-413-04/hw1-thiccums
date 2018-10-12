@@ -1,7 +1,7 @@
 package simpleserver;
 
 import com.google.gson.Gson;
-
+import com.google.gson.*;
 public class PostProcessor implements Processor {
 
     @Override

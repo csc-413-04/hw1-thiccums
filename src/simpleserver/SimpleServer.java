@@ -3,6 +3,7 @@ package simpleserver;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import com.google.gson.*;
 
 class SimpleServer {
 
@@ -60,8 +61,14 @@ class SimpleServer {
         // String.split( delimiting regex, limit use -1 for no limit)
         String[] requestParts = requestLine.split(" "); // [GET , /hello, HTTP/1.1]
         String endpoint = requestParts[1];
-        Processor Processor = ProcessFactory.getProcessor(endpoint);
-        writer.println(Processor.process(endpoint));
+        String [] parts = endpoint.split("\\?");
+        Processor Processor = ProcessFactory.getProcessor(parts[0]);
+        String [] ids = parts[1].split("=");
+
+
+        Processor.process(ids[1]);
+
+        //writer.println(Processor.process(endpoint));
 
 
         BufferedOutputStream out = new BufferedOutputStream(dong.getOutputStream());
