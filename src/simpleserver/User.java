@@ -1,6 +1,6 @@
 package simpleserver;
 
-public class User<T>{
+public class User<T> extends iData{
     private T userid;
     private String username;
 

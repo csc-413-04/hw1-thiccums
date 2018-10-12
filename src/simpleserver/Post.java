@@ -1,6 +1,6 @@
 package simpleserver;
 
-public class Post<T> {
+public class Post<T> extends iData{
     private T postid;
     private String data;
     private int maxLength;
