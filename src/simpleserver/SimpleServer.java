@@ -40,8 +40,6 @@ class SimpleServer {
           requestLine = line;// capturing this line to tokenize this string for user, user?userid=#, post, post?postid=#
 
 
-
-
           // read only headers
           line = in.readLine();
           while (line != null && line.trim().length() > 0) {
@@ -60,7 +58,10 @@ class SimpleServer {
         }
 
         // String.split( delimiting regex, limit use -1 for no limit)
-          Processor.process(requestLine);
+        String[] requestParts = requestLine.split(" "); // [GET , /hello, HTTP/1.1]
+        String endpoint = requestParts[1];
+        Processor Processor = ProcessFactory.getProcessor(endpoint);
+        writer.println(Processor.process(endpoint));
 
 
         BufferedOutputStream out = new BufferedOutputStream(dong.getOutputStream());
